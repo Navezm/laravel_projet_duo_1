@@ -7,9 +7,9 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#header">Home</a></li>
-          <li><a href="#about">Article</a></li>
-          <li><a href="#services">Contact</a></li>
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Article</a></li>
+          <li><a href="#">Contact</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
