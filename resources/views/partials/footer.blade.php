@@ -3,18 +3,16 @@
 
       <div class="mr-md-auto text-center text-md-left">
         <div class="copyright">
-          &copy; Copyright <strong><span>Resi</span></strong>. All Rights Reserved
+          {{$paragraph1[0]}} <strong><span>{{$paragraph1[1]}}</span></strong>{{$paragraph1[2]}}
         </div>
         <div class="credits">
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          {{$paragraph2[0]}} <a href="{{$DBnav[0]->linbkB}}">{{$paragraph2[1]}}</a>
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        @foreach ($DBnav as $item)
+          <a href="#" class="twitter"><i class="{{$item->icon}}"></i></a>
+        @endforeach
       </div>
     </div>
 </footer>
