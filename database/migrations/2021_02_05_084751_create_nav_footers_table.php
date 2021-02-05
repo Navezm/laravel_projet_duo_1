@@ -15,6 +15,12 @@ class CreateNavFootersTable extends Migration
     {
         Schema::create('nav_footers', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 30);
+            $table->string('link', 50);
+            $table->string('icon', 100);
+            $table->string('copyright', 100);
+            $table->string('credits', 100);
+            $table->string('linbkB', 100);
             $table->timestamps();
         });
     }
