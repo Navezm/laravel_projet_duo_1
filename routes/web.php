@@ -18,6 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/articles',[ArticleController::class, "index"]);
-Route::get('/contact',[ContactController::class, "index"]);
+Route::get('/articles',[ArticleController::class, "index"])->name('articles');
+Route::get('/contact',[ContactController::class, "index"])->name('contact');
 
