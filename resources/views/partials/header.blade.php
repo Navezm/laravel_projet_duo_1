@@ -7,6 +7,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
+
           @foreach ($DBnav as $item)
               @if ($item->link === "home")
                 <li class="{{Route::getCurrentRoute()->uri()== '/'? 'active' : ''}}"><a href="{{route($item->link)}}">{{$item->link}}</a></li>
