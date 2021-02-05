@@ -8,12 +8,12 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
 
-          @foreach ($DBnav as $item)
+          @foreach ([$DBnav[0],$DBnav[1],$DBnav[2]] as $item)
               @if ($item->link === "home")
-                <li class="{{Route::getCurrentRoute()->uri()== '/'? 'active' : ''}}"><a href="{{route($item->link)}}">{{$item->link}}</a></li>
+                <li class="{{Route::getCurrentRoute()->uri()== '/'? 'active' : ''}}"><a class='text-capitalize' href="{{route($item->link)}}">{{$item->link}}</a></li>
 
                 @else
-                <li class="{{Route::getCurrentRoute()->uri()== $item->link? 'active' : ''}}"><a href="{{route($item->link)}}">{{$item->link}}</a></li>
+                <li class="{{Route::getCurrentRoute()->uri()== $item->link? 'active' : ''}}"><a class='text-capitalize' href="{{route($item->link)}}">{{$item->link}}</a></li>
 
               @endif
           @endforeach
