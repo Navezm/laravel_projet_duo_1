@@ -8,8 +8,8 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="{{Route::getCurrentRoute()->uri() == '/'? 'active' : ''}}"><a href="/">Home</a></li>
-          <li class="{{Route::getCurrentRoute()->uri() == 'articles'? 'active' : ''}}"><a href="{{route('articles')}}">Articles</a></li>
-          <li class="{{Route::getCurrentRoute()->uri() == 'contact'? 'active' : ''}}"><a href="#">Contact</a></li>
+          <li class="{{Route::getCurrentRoute()->uri() == 'articles'? 'active' : ''}}"><a href="/articles">Articles</a></li>
+          <li class="{{Route::getCurrentRoute()->uri() == 'contact'? 'active' : ''}}"><a href="/contact">Contact</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
