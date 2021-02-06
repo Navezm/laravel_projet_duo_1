@@ -19,10 +19,10 @@
         <div class="validate"></div>
       </div>
       <div class="mb-3">
-        <div class="loading">{{$general->loading}}</div>
+        <div class="loading">{{$contacts[0]->loading}}</div>
         <div class="error-message"></div>
-        <div class="sent-message">{{$general->sent}}</div>
+        <div class="sent-message">{{$contacts[0]->sent}}</div>
       </div>
-      <div class="text-center"><button type="submit">{{$general->btn}}</button></div>
+      <div class="text-center"><button type="submit">{{$contacts[0]->btn}}</button></div>
     </form>
   </div>

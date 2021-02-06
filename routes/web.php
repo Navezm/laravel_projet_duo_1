@@ -19,3 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class,'index'])->name('home');
 Route::get('/articles',[ArticleController::class, "index"])->name('articles');
 Route::get('/contact',[ContactController::class, "index"])->name('contact');
+
+// BO
+
+Route::get('/back-office',function(){
+    return view('backoffice');
+});
+Route::get('/bo/addresses',[ContactController::class, "address"]);
+Route::get('/bo/emails',[ContactController::class, "email"]);
+Route::get('/bo/phones',[ContactController::class, "phone"]);

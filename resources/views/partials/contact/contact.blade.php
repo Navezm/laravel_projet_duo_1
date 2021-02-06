@@ -3,8 +3,8 @@
         <div class="container">
   
           <div class="section-title">
-            <h2>{{$general->title1}}</h2>
-            <p>{{$general->p}}</p>
+            <h2>{{$contacts[0]->title1}}</h2>
+            <p>{{$contacts[0]->p}}</p>
           </div>
   
           <div class="row">
