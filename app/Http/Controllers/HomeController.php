@@ -15,4 +15,11 @@ class HomeController extends Controller
         $paragraph2 = explode('/', $DBnav[0]->credits);
         return view('welcome', compact('DBhome', 'DBnav', 'paragraph1', 'paragraph2'));
     }
+    public function back(){
+        $DBhome = Home::all();
+        $DBnav = NavFooter::all();
+        $paragraph1 = explode('/', $DBnav[0]->copyright);
+        $paragraph2 = explode('/', $DBnav[0]->credits);
+        return view('pages.welcomeBack', compact('DBhome', 'DBnav', 'paragraph1', 'paragraph2'));
+    }
 }
