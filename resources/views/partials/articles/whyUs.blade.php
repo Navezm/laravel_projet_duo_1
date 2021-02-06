@@ -15,7 +15,6 @@
               <p>{{$article->preview}}</p>
             </div>
           </div>
-
           @if ($loop->iteration % 3 === 0)
             </div>              
             <div class="row mt-5">
