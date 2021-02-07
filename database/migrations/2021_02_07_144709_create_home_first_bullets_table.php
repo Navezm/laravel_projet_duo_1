@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHomesTable extends Migration
+class CreateHomeFirstBulletsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateHomesTable extends Migration
      */
     public function up()
     {
-        Schema::create('homes', function (Blueprint $table) {
+        Schema::create('home_first_bullets', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100);
-            $table->string('subtitle', 100);
-            $table->string('btn', 60);
-            $table->string('paragraph', 500);
-            $table->string('src', 150);
+            $table->string('icon', 50);
+            $table->string('bullet', 100);
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateHomesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('homes');
+        Schema::dropIfExists('home_first_bullets');
     }
 }
