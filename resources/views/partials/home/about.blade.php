@@ -14,8 +14,8 @@
               {{$DBhome[1]->paragraph}}
             </p>
             <ul>
-              @foreach ($DBhome as $item)
-                <li><i class="{{$item->icon2}}"></i>{{$item->bullet2}}</li>
+              @foreach ($BulletAbout as $item)
+                <li><i class="{{$item->icon}}"></i>{{$item->bullet}}</li>
               @endforeach
             </ul>
             <p class="font-italic">
