@@ -15,7 +15,7 @@
             </p>
             <ul>
               @foreach ($BulletAbout as $item)
-                <li><i class="{{$item->icon}}"></i>{{$item->bullet}}</li>
+                <li><i class="{{$BulletAbout[0]->icon}}"></i>{{$item->bullet}}</li>
               @endforeach
             </ul>
             <p class="font-italic">

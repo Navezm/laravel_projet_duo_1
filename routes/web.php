@@ -28,3 +28,5 @@ Route::get('/back-office',function(){
 Route::get('/bo/addresses',[ContactController::class, "address"]);
 Route::get('/bo/emails',[ContactController::class, "email"]);
 Route::get('/bo/phones',[ContactController::class, "phone"]);
+Route::get('/bo/home', [HomeController::class, 'home']);
+Route::get('/bo/nav', [HomeController::class, 'nav']);

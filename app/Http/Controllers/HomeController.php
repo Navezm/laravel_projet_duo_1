@@ -24,4 +24,15 @@ class HomeController extends Controller
         $paragraph2 = explode('/', $DBnav[0]->credits);
         return view('welcome', compact('DBhome', 'DBnav', 'paragraph1', 'paragraph2', 'NavLink', 'FooterBtn', 'BulletHome', 'BulletAbout'));
     }
+
+    public function home(){
+        $BulletHome = HomeFirstBullet::all();
+        $BulletAbout = HomeSecondBullet::all();
+        return view('pages.bo.home', compact('BulletHome', 'BulletAbout'));
+    }
+
+    public function nav(){
+        $NavLink = NavLink::all();
+        return view('pages.bo.nav', compact('NavLink'));
+    }
 }

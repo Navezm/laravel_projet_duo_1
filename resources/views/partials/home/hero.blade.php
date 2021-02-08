@@ -6,7 +6,7 @@
           <h1>{{$DBhome[0]->title}}</h1>
           <ul>
             @foreach ($BulletHome as $item)
-              <li><i class="{{$item->icon}}"></i>{{$item->bullet}}</li>
+              <li><i class="{{$BulletHome[0]->icon}}"></i>{{$item->bullet}}</li>
             @endforeach
           </ul>
           <div class="mt-3">
