@@ -26,4 +26,14 @@ class ArticleController extends Controller
         $articles = Article::all();
         return view('pages.bo.articles.articles',compact('articles'));
     }
+
+    public function store(Request $requests){
+        $newEntry = new Article;
+        $newEntry->title = $requests->title;
+        $newEntry->subtitle = $requests->subtitle;
+        $newEntry->preview = $requests->preview;
+
+        $newEntry->save();
+        return redirect()->back();
+    }
 }

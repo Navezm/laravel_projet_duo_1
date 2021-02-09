@@ -31,8 +31,32 @@ class HomeController extends Controller
         return view('pages.bo.home', compact('BulletHome', 'BulletAbout'));
     }
 
+    public function storeHome(Request $requests){
+        $newEntry = new HomeFirstBullet();
+        $newEntry->bullet = $requests->bullet;
+
+        $newEntry->save();
+        return redirect()->back();
+    }
+
+    public function storeAbout(Request $requests){
+        $newEntry = new HomeSecondBullet();
+        $newEntry->bullet = $requests->bullet;
+
+        $newEntry->save();
+        return redirect()->back();
+    }
+
     public function nav(){
         $NavLink = NavLink::all();
         return view('pages.bo.nav', compact('NavLink'));
+    }
+
+    public function storeNav(Request $requests){
+        $newEntry = new NavLink();
+        $newEntry->link = $requests->link;
+
+        $newEntry->save();
+        return redirect()->back();
     }
 }

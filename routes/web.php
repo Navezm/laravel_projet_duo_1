@@ -22,15 +22,23 @@ Route::get('/contact',[ContactController::class, "index"])->name('contact');
 
 // BO
 
-Route::get('/back-office',function(){
+Route::get('/bo',function(){
     return view('backoffice');
 });
 
 // create part
+
+Route::get('/bo/home', [HomeController::class, 'home']);
+Route::post('/addHomeBullet',[HomeController::class, 'storeHome']);
+Route::post('/addAboutBullet',[HomeController::class, 'storeAbout']);
+Route::get('/bo/nav', [HomeController::class, 'nav']);
+Route::post('/addNavLink',[HomeController::class, 'storeNav']);
 Route::get('/bo/articles',[ArticleController::class, "create"]);
+Route::post('/add-article',[ArticleController::class, 'store']);
 
 Route::get('/bo/addresses',[ContactController::class, "address"]);
+Route::post('/add-address',[ContactController::class, 'storeAddress']);
 Route::get('/bo/emails',[ContactController::class, "email"]);
+Route::post('/add-email',[ContactController::class, 'storeEmail']);
 Route::get('/bo/phones',[ContactController::class, "phone"]);
-Route::get('/bo/home', [HomeController::class, 'home']);
-Route::get('/bo/nav', [HomeController::class, 'nav']);
+Route::post('/add-phone',[ContactController::class, 'storePhone']);

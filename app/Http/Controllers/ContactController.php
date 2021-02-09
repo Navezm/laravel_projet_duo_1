@@ -47,16 +47,43 @@ class ContactController extends Controller
         $storePath = '/add-address';
         return view('pages.bo.contact.addresses',compact('infos','pageTitle','storePath'));
     }
+
+    public function storeAddress(Request $requests){
+        $newEntry = new ContactAddress;
+        $newEntry->info = $requests->info;
+
+        $newEntry->save();
+        return redirect()->back();
+    }
+
+
     public function email (){
         $infos = ContactEmail::all();
         $pageTitle = 'Emails';
         $storePath = '/add-email';
         return view('pages.bo.contact.emails',compact('infos','pageTitle','storePath'));
     }
+
+    public function storeEmail(Request $requests){
+        $newEntry = new ContactEmail;
+        $newEntry->info = $requests->info;
+
+        $newEntry->save();
+        return redirect()->back();
+    }
+
     public function phone (){
         $infos = ContactPhone::all();
         $pageTitle = 'Phone numbers';
         $storePath = '/add-phone';
         return view('pages.bo.contact.phones',compact('infos','pageTitle','storePath'));
+    }
+
+    public function storePhone(Request $requests){
+        $newEntry = new ContactPhone;
+        $newEntry->info = $requests->info;
+
+        $newEntry->save();
+        return redirect()->back();
     }
 }

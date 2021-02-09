@@ -1,13 +1,15 @@
 <header id="header" class="fixed-top bg-warning">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html" class="">Resi BackOffice</a></h1>
+      <h1 class="logo"><a href="/bo" class="">Resi BackOffice</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-            <li class="nav-item active">
+            <li class="nav-item"> <a href="/" class="nav-item btn btn-primary text-white ">
+            To the Website</a></li>
+            <li class="nav-item">
                 <a class="nav-link" href="/bo/home">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item ">
