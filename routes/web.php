@@ -25,6 +25,10 @@ Route::get('/contact',[ContactController::class, "index"])->name('contact');
 Route::get('/back-office',function(){
     return view('backoffice');
 });
+
+// create part
+Route::get('/bo/articles',[ArticleController::class, "create"]);
+
 Route::get('/bo/addresses',[ContactController::class, "address"]);
 Route::get('/bo/emails',[ContactController::class, "email"]);
 Route::get('/bo/phones',[ContactController::class, "phone"]);

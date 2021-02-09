@@ -17,4 +17,9 @@ class ArticleController extends Controller
         
         return view('pages.article',compact('articles','DBnav','paragraph1','paragraph2'));
     }
+
+    public function create (){
+        $articles = Article::all();
+        return view('pages.bo.articles.articles',compact('articles'));
+    }
 }

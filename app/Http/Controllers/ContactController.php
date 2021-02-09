@@ -21,32 +21,38 @@ class ContactController extends Controller
         $emails = ContactEmail::all();
         $phones = ContactPhone::all();
         $infos = [$addresses,$emails,$phones];
-
-
+        
+        
         $forms = Form::all();
         $placeHolders = $forms[0];
         $datamsgs = $forms[1];
-
-
+        
+        
         // navfooter
         $DBnav = NavFooter::all();
         $paragraph1 = explode('/', $DBnav[0]->copyright);
         $paragraph2 = explode('/', $DBnav[0]->credits);
-
+        
         // dd($cards);
         return view('pages.contact',compact('placeHolders','datamsgs','contacts','cards','DBnav','paragraph1',"paragraph2",'infos'));
     }
-
+    
     public function address (){
-        $addresses = ContactAddress::all();
-        return view('pages.bo.contact.addresses',compact('addresses'));
+        $infos = ContactAddress::all();
+        $pageTitle = 'Addresses';
+        $storePath = '/add-address';
+        return view('pages.bo.contact.addresses',compact('infos','pageTitle','storePath'));
     }
     public function email (){
-        $emails = ContactEmail::all();
-        return view('pages.bo.contact.emails',compact('emails'));
+        $infos = ContactEmail::all();
+        $pageTitle = 'Emails';
+        $storePath = '/add-email';
+        return view('pages.bo.contact.emails',compact('infos','pageTitle','storePath'));
     }
     public function phone (){
-        $phones = ContactPhone::all();
-        return view('pages.bo.contact.phones',compact('phones'));
+        $infos = ContactPhone::all();
+        $pageTitle = 'Phone numbers';
+        $storePath = '/add-phone';
+        return view('pages.bo.contact.phones',compact('infos','pageTitle','storePath'));
     }
 }
