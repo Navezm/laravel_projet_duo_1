@@ -8,14 +8,13 @@
       <div class="row">
         @foreach ($articles as $article)
         <div class="col-lg-4">
-          <h1 class="text-primary">{{$article->title}}</h1>
+          <h1 class="text-primary">{{$article->tile}}</h1>
             <div class="box">
               <span>{{($article->id > 9 ? '' : '0').($article->id)}}</span>
               <h4>{{$article->subtitle}}</h4>
               <p>{{$article->preview}}</p>
             </div>
           </div>
-
           @if ($loop->iteration % 3 === 0)
             </div>              
             <div class="row mt-5">

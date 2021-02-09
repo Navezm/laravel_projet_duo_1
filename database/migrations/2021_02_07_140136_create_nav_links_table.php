@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNavFootersTable extends Migration
+class CreateNavLinksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateNavFootersTable extends Migration
      */
     public function up()
     {
-        Schema::create('nav_footers', function (Blueprint $table) {
+        Schema::create('nav_links', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 30);
-            $table->string('copyright', 100);
-            $table->string('credits', 100);
-            $table->string('linbkB', 100);
+            $table->string('link', 50);
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateNavFootersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nav_footers');
+        Schema::dropIfExists('nav_links');
     }
 }

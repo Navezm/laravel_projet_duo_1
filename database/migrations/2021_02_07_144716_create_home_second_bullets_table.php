@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNavFootersTable extends Migration
+class CreateHomeSecondBulletsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateNavFootersTable extends Migration
      */
     public function up()
     {
-        Schema::create('nav_footers', function (Blueprint $table) {
+        Schema::create('home_second_bullets', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 30);
-            $table->string('copyright', 100);
-            $table->string('credits', 100);
-            $table->string('linbkB', 100);
+            $table->string('icon', 50);
+            $table->string('bullet', 100);
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateNavFootersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nav_footers');
+        Schema::dropIfExists('home_second_bullets');
     }
 }
