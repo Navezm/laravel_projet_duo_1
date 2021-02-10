@@ -17,12 +17,8 @@ class CreateHomesTable extends Migration
             $table->id();
             $table->string('title', 100);
             $table->string('subtitle', 100);
-            $table->string('bullet1', 100);
-            $table->string('bullet2', 100);
             $table->string('btn', 60);
             $table->string('paragraph', 500);
-            $table->string('icon', 50);
-            $table->string('icon2', 50);
             $table->string('src', 150);
             $table->timestamps();
         });

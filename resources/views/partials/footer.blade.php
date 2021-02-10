@@ -10,8 +10,8 @@
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        @foreach ($DBnav as $item)
-          <a href="#" class="twitter"><i class="{{$item->icon}}"></i></a>
+        @foreach ($FooterBtn as $item)
+          <a href="#" class="twitter"><i class="{{$item->button}}"></i></a>
         @endforeach
       </div>
     </div>

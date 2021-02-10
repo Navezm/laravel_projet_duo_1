@@ -5,8 +5,8 @@
         <div class="col-lg-6 pt-2 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1>{{$DBhome[0]->title}}</h1>
           <ul>
-            @foreach ($DBhome as $item)
-              <li><i class="{{$item->icon}}"></i>{{$item->bullet1}}</li>
+            @foreach ($BulletHome as $item)
+              <li><i class="{{$BulletHome[0]->icon}}"></i>{{$item->bullet}}</li>
             @endforeach
           </ul>
           <div class="mt-3">
