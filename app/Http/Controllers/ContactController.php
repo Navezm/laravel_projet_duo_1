@@ -45,7 +45,8 @@ class ContactController extends Controller
         $infos = ContactAddress::all();
         $pageTitle = 'Addresses';
         $storePath = '/add-address';
-        return view('pages.bo.contact.addresses',compact('infos','pageTitle','storePath'));
+        $deletePath = '/delete-address/';
+        return view('pages.bo.contact.addresses',compact('infos','pageTitle','storePath','deletePath'));
     }
 
     public function storeAddress(Request $requests){
@@ -55,13 +56,20 @@ class ContactController extends Controller
         $newEntry->save();
         return redirect()->back();
     }
+    public function destroyAddress($id){
+        $destroy = ContactAddress::find($id);
+        $destroy->delete();
+
+        return redirect()->back();
+    }
 
 
     public function email (){
         $infos = ContactEmail::all();
         $pageTitle = 'Emails';
         $storePath = '/add-email';
-        return view('pages.bo.contact.emails',compact('infos','pageTitle','storePath'));
+        $deletePath = '/delete-email/';
+        return view('pages.bo.contact.emails',compact('infos','pageTitle','storePath','deletePath'));
     }
 
     public function storeEmail(Request $requests){
@@ -71,12 +79,19 @@ class ContactController extends Controller
         $newEntry->save();
         return redirect()->back();
     }
+    public function destroyEmail($id){
+        $destroy = ContactEmail::find($id);
+        $destroy->delete();
+        
+        return redirect()->back();
+    }
 
     public function phone (){
         $infos = ContactPhone::all();
         $pageTitle = 'Phone numbers';
         $storePath = '/add-phone';
-        return view('pages.bo.contact.phones',compact('infos','pageTitle','storePath'));
+        $deletePath = '/delete-phone/';
+        return view('pages.bo.contact.phones',compact('infos','pageTitle','storePath','deletePath'));
     }
 
     public function storePhone(Request $requests){
@@ -84,6 +99,13 @@ class ContactController extends Controller
         $newEntry->info = $requests->info;
 
         $newEntry->save();
+        return redirect()->back();
+    }
+
+    public function destroyPhone($id){
+        $destroy = ContactPhone::find($id);
+        $destroy->delete();
+        
         return redirect()->back();
     }
 }

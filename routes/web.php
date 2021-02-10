@@ -35,10 +35,14 @@ Route::get('/bo/nav', [HomeController::class, 'nav']);
 Route::post('/addNavLink',[HomeController::class, 'storeNav']);
 Route::get('/bo/articles',[ArticleController::class, "create"]);
 Route::post('/add-article',[ArticleController::class, 'store']);
+Route::post('/delete-article/{id}',[ArticleController::class, 'destroy']);
 
 Route::get('/bo/addresses',[ContactController::class, "address"]);
 Route::post('/add-address',[ContactController::class, 'storeAddress']);
+Route::post('/delete-address/{id}',[ContactController::class, 'destroyAddress']);
 Route::get('/bo/emails',[ContactController::class, "email"]);
 Route::post('/add-email',[ContactController::class, 'storeEmail']);
+Route::post('/delete-email/{id}',[ContactController::class, 'destroyEmail']);
 Route::get('/bo/phones',[ContactController::class, "phone"]);
 Route::post('/add-phone',[ContactController::class, 'storePhone']);
+Route::post('/delete-phone/{id}',[ContactController::class, 'destroyPhone']);

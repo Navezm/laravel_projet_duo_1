@@ -36,4 +36,11 @@ class ArticleController extends Controller
         $newEntry->save();
         return redirect()->back();
     }
+
+    public function destroy($id){
+        $destroy = Article::find($id);
+        $destroy->delete();
+        
+        return redirect()->back();
+    }
 }
