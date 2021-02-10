@@ -14,7 +14,7 @@
             <td>{{$item->bullet}}</td>
             <td>
               <td>
-                <form action="/deleteNav/{{$item->id}}" method="POST">
+                <form action="/deleteAbout/{{$item->id}}" method="POST">
                   @csrf
                   <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
