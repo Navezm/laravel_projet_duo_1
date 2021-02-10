@@ -59,4 +59,22 @@ class HomeController extends Controller
         $newEntry->save();
         return redirect()->back();
     }
+
+    public function destroy($id){
+        $destroy = NavLink::find($id);
+        $destroy->delete();
+        return redirect()->back();
+    }
+
+    public function destroy2($id){
+        $destroy = HomeFirstBullet::find($id);
+        $destroy->delete();
+        return redirect()->back();
+    }
+
+    public function destroy3($id){
+        $destroy = HomeSecondBullet::find($id);
+        $destroy->delete();
+        return redirect()->back();
+    }
 }
