@@ -41,6 +41,12 @@ class ArticleController extends Controller
         $destroy = Article::find($id);
         $destroy->delete();
         
-        return redirect()->back();
+        return redirect('/bo/articles');
+    }
+
+    public function show($id)
+    {
+        $show = Article::find($id);
+        return view('pages.bo.articles.show', compact('show'));
     }
 }

@@ -36,6 +36,7 @@ Route::post('/addNavLink',[HomeController::class, 'storeNav']);
 Route::get('/bo/articles',[ArticleController::class, "create"]);
 Route::post('/add-article',[ArticleController::class, 'store']);
 Route::post('/delete-article/{id}',[ArticleController::class, 'destroy']);
+Route::get('/article-show/{id}', [ArticleController::class,'show']);
 
 Route::get('/bo/addresses',[ContactController::class, "address"]);
 Route::post('/add-address',[ContactController::class, 'storeAddress']);
