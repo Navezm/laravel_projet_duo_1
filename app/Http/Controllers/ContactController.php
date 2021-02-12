@@ -169,7 +169,8 @@ class ContactController extends Controller
     {
         $pageContent = Contact::first();
         $pageContentForms = Form::all();
-        return view('pages.bo.contact.pageContent', compact('pageContent','pageContentForms'));
+        $cards = ContactCard::all();
+        return view('pages.bo.contact.pageContent', compact('pageContent','pageContentForms','cards'));
     }
 
     public function updatePageContent(Request $request) 
@@ -195,6 +196,17 @@ class ContactController extends Controller
         $pageContentForm->message = $request->message;
 
         $pageContentForm->save();
+
+        return redirect()->back();
+    }
+
+    public function updatePageContentCards(Request $request, $id) 
+    {
+        $pageContentCard = ContactCard::find($id);
+        $pageContentCard->icon = $request->icon;
+        $pageContentCard->subtitle = $request->subtitle;
+
+        $pageContentCard->save();
 
         return redirect()->back();
     }

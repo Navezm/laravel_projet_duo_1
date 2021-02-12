@@ -73,3 +73,4 @@ Route::post('/bo/articles/content/update', [ArticleController::class, 'updatePag
 Route::get('/bo/contact/pg', [ContactController::class, 'editPageContent']);
 Route::post('/bo/contact/content/update', [ContactController::class, 'updatePageContent']);
 Route::post('/bo/contact/content/update-form/{id}', [ContactController::class, 'updatePageContentForm']);
+Route::post('/bo/contact/content/update-card/{id}', [ContactController::class, 'updatePageContentCards']);

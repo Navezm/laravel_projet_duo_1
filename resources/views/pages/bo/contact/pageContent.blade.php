@@ -48,7 +48,41 @@
     </div>
 
 </section>
+<hr>
+<section class="container my-5">
+    <h1 class="bo-title text-center">
+        Contact - Cards
+    </h1>
+    
+    @foreach ($cards as $card)
+        <h5 class="text-primary"> Card #{{$loop->iteration}}</h5>
+        <div class="my-3 container">
+            <h5 class="text-primary"><span class="p text-secondary"> Current Subtitle :  </span><br>
+                {{$card->subtitle}}</h5>  
+            <h5 class="text-primary"><span class="p text-secondary"> Current Icon :  </span><br>
+                <i class="{{$card->icon}}"></i></h5>  
+             
+        </div>
+    
+        <div class="container mt-1 p-5">
+            <form action="/bo/contact/content/update-card/{{$card->id}}" method="post" class="bg-warning text-white rounded p-3">
+                @csrf
+                <div class="form-group">
+                    <label >New Subtitle : </label>
+                    <input type="text" class="form-control" name="subtitle" value="{{$card->subtitle}}"/>
+                  </div>
+                <div class="form-group">
+                    <label >New Icon : </label>
+                    <input type="text" class="form-control" name="icon" value="{{$card->icon}}"/>
 
+                  </div>
+               
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    @endforeach
+
+</section>
 <hr>
 
 <section class="container my-5">
