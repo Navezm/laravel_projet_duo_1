@@ -34,6 +34,9 @@ Route::post('/addAboutBullet',[HomeController::class, 'storeAbout']);
 Route::get('/bo/nav', [HomeController::class, 'nav']);
 Route::post('/addNavLink',[HomeController::class, 'storeNav']);
 Route::get('/bo/articles',[ArticleController::class, "create"]);
+
+
+
 Route::post('/add-article',[ArticleController::class, 'store']);
 Route::post('/delete-article/{id}',[ArticleController::class, 'destroy']);
 Route::get('/article-show/{id}', [ArticleController::class,'show']);
@@ -61,3 +64,12 @@ Route::post('/update-phone/{id}',[ContactController::class, 'updatePhone']);
 Route::post('/deleteNav/{id}', [HomeController::class,'destroy']);
 Route::post('/deleteHome/{id}', [HomeController::class,'destroy2']);
 Route::post('/deleteAbout/{id}', [HomeController::class,'destroy3']);
+
+
+// PAGE CONTENTS - static db
+
+Route::get('/bo/articles/pg', [ArticleController::class, 'editPageContent']);
+Route::post('/bo/articles/content/update', [ArticleController::class, 'updatePageContent']);
+Route::get('/bo/contact/pg', [ContactController::class, 'editPageContent']);
+Route::post('/bo/contact/content/update', [ContactController::class, 'updatePageContent']);
+Route::post('/bo/contact/content/update-form/{id}', [ContactController::class, 'updatePageContentForm']);

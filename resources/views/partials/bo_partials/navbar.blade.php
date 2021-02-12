@@ -12,16 +12,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="/bo/home">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="/bo/articles">Articles </span></a>
-            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Articles
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                <a class="dropdown-item" href="/bo/addresses">Page Content</a>
+                <a class="dropdown-item" href="/bo/articles/pg">Page Content</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/bo/articles">Add an Article</a>
               </div>
@@ -34,6 +31,8 @@
                   Contact
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/bo/contact/pg">Page Content</a>
+                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="/bo/addresses">Addresses</a>
                   <a class="dropdown-item" href="/bo/emails">Emails</a>
                   <a class="dropdown-item" href="/bo/phones">Phone Numbers</a>

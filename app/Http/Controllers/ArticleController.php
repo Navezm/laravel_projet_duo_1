@@ -69,4 +69,21 @@ class ArticleController extends Controller
         $show = Article::find($id);
         return view('pages.bo.articles.show', compact('show'));
     }
+
+    
+    public function editPageContent() 
+    {
+        $pageContent = articlePageContent::first();
+        return view('pages.bo.articles.pageContent', compact('pageContent'));
+    }
+
+    public function updatePageContent(Request $request) 
+    {
+        $pageContent = articlePageContent::first();
+        $pageContent->title = $request->title;
+
+        $pageContent->save();
+
+        return redirect()->back();
+    }
 }

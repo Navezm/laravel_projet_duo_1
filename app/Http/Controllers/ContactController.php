@@ -164,4 +164,40 @@ class ContactController extends Controller
         
         return redirect()->back();
     }
+
+    public function editPageContent() 
+    {
+        $pageContent = Contact::first();
+        $pageContentForms = Form::all();
+        return view('pages.bo.contact.pageContent', compact('pageContent','pageContentForms'));
+    }
+
+    public function updatePageContent(Request $request) 
+    {
+        $pageContent = Contact::first();
+        $pageContent->title1 = $request->title1;
+        $pageContent->p = $request->p;
+        $pageContent->loading = $request->loading;
+        $pageContent->sent = $request->sent;
+        $pageContent->btn = $request->btn;
+
+        $pageContent->save();
+
+        return redirect()->back();
+    }
+
+    public function updatePageContentForm(Request $request, $id) 
+    {
+        $pageContentForm = Form::find($id);
+        $pageContentForm->name = $request->name;
+        $pageContentForm->email = $request->email;
+        $pageContentForm->subject = $request->subject;
+        $pageContentForm->message = $request->message;
+
+        $pageContentForm->save();
+
+        return redirect()->back();
+    }
+
+    
 }
