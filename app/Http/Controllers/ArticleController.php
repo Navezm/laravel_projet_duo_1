@@ -24,7 +24,8 @@ class ArticleController extends Controller
 
     public function create (){
         $articles = Article::all();
-        return view('pages.bo.articles.articles',compact('articles'));
+        $values = false;
+        return view('pages.bo.articles.articles',compact('articles','values'));
     }
 
     public function store(Request $requests){
@@ -42,6 +43,23 @@ class ArticleController extends Controller
         $destroy->delete();
         
         return redirect('/bo/articles');
+    }
+
+    public function edit($id) 
+    {
+        $article = Article::find($id);
+        $values = true;
+        return view('pages.bo.articles.edit', compact('article','values'));
+    }
+
+    public function update(Request $requests, $id){
+        $update = Article::find($id);
+        $update->title = $requests->title;
+        $update->subtitle = $requests->subtitle;
+        $update->preview = $requests->preview;
+
+        $update->save();
+        return redirect('/article-show/'.$update->id);
     }
 
     public function show($id)
