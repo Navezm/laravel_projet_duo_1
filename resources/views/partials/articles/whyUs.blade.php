@@ -3,7 +3,7 @@
 
 <section id="why-us" class="why-us">
   <div class="container">
-      <h1 class="text-primary mb-5 text-uppercase text-center">Why Us?</h1>
+      <h1 class="text-primary mb-5 text-uppercase text-center">{{$title->title}}</h1>
 
       <div class="row">
         @foreach ($articles as $article)
