@@ -34,20 +34,32 @@ Route::post('/addAboutBullet',[HomeController::class, 'storeAbout']);
 Route::get('/bo/nav', [HomeController::class, 'nav']);
 Route::post('/addNavLink',[HomeController::class, 'storeNav']);
 Route::get('/bo/articles',[ArticleController::class, "create"]);
+
+
+
 Route::post('/add-article',[ArticleController::class, 'store']);
 Route::post('/delete-article/{id}',[ArticleController::class, 'destroy']);
 Route::get('/article-show/{id}', [ArticleController::class,'show']);
+Route::get('/article-edit/{id}', [ArticleController::class,'edit']);
+Route::post('/update-article/{id}',[ArticleController::class, 'update']);
 
 Route::get('/bo/addresses',[ContactController::class, "address"]);
 Route::post('/add-address',[ContactController::class, 'storeAddress']);
 Route::post('/delete-address/{id}',[ContactController::class, 'destroyAddress']);
+Route::get('/edit-address/{id}',[ContactController::class, 'editAddress']);
+Route::post('/update-address/{id}',[ContactController::class, 'updateAddress']);
+
 Route::get('/bo/emails',[ContactController::class, "email"]);
-Route::get('/bo/phones',[ContactController::class, "phone"]);
 Route::post('/add-email',[ContactController::class, 'storeEmail']);
 Route::post('/delete-email/{id}',[ContactController::class, 'destroyEmail']);
+Route::get('/edit-email/{id}',[ContactController::class, 'editEmail']);
+Route::post('/update-email/{id}',[ContactController::class, 'updateEmail']);
+
 Route::get('/bo/phones',[ContactController::class, "phone"]);
 Route::post('/add-phone',[ContactController::class, 'storePhone']);
 Route::post('/delete-phone/{id}',[ContactController::class, 'destroyPhone']);
+Route::get('/edit-phone/{id}',[ContactController::class, 'editPhone']);
+Route::post('/update-phone/{id}',[ContactController::class, 'updatePhone']);
 
 Route::post('/deleteNav/{id}', [HomeController::class,'destroy']);
 Route::post('/deleteHome/{id}', [HomeController::class,'destroy2']);
@@ -59,3 +71,12 @@ Route::get('/editAbout/{id}', [HomeController::class,'edit3']);
 Route::post('/updateNav/{id}', [HomeController::class,'update']);
 Route::post('/updateHome/{id}', [HomeController::class,'update2']);
 Route::post('/updateAbout/{id}', [HomeController::class,'update3']);
+
+// PAGE CONTENTS - static db
+
+Route::get('/bo/articles/pg', [ArticleController::class, 'editPageContent']);
+Route::post('/bo/articles/content/update', [ArticleController::class, 'updatePageContent']);
+Route::get('/bo/contact/pg', [ContactController::class, 'editPageContent']);
+Route::post('/bo/contact/content/update', [ContactController::class, 'updatePageContent']);
+Route::post('/bo/contact/content/update-form/{id}', [ContactController::class, 'updatePageContentForm']);
+Route::post('/bo/contact/content/update-card/{id}', [ContactController::class, 'updatePageContentCards']);

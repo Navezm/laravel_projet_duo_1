@@ -46,7 +46,9 @@ class ContactController extends Controller
         $pageTitle = 'Addresses';
         $storePath = '/add-address';
         $deletePath = '/delete-address/';
-        return view('pages.bo.contact.addresses',compact('infos','pageTitle','storePath','deletePath'));
+        $editPath = '/edit-address/';
+        $values = false;
+        return view('pages.bo.contact.addresses',compact('infos','pageTitle','storePath','deletePath','editPath','values'));
     }
 
     public function storeAddress(Request $requests){
@@ -56,6 +58,23 @@ class ContactController extends Controller
         $newEntry->save();
         return redirect()->back();
     }
+
+    public function editAddress($id) 
+    {   
+        $info = ContactAddress::find($id);
+        $storePath = '/update-address/'.$info->id;
+        $values = true;
+        return view('pages.bo.contact.edit', compact('storePath','info','values'));
+    }
+
+    public function updateAddress(Request $requests, $id){
+        $update = ContactAddress::find($id);
+        $update->info = $requests->info;
+
+        $update->save();
+        return redirect('/bo/addresses');
+    }
+
     public function destroyAddress($id){
         $destroy = ContactAddress::find($id);
         $destroy->delete();
@@ -69,7 +88,9 @@ class ContactController extends Controller
         $pageTitle = 'Emails';
         $storePath = '/add-email';
         $deletePath = '/delete-email/';
-        return view('pages.bo.contact.emails',compact('infos','pageTitle','storePath','deletePath'));
+        $editPath = '/edit-email/';
+        $values = false;
+        return view('pages.bo.contact.emails',compact('infos','pageTitle','storePath','deletePath','editPath','values'));
     }
 
     public function storeEmail(Request $requests){
@@ -79,6 +100,23 @@ class ContactController extends Controller
         $newEntry->save();
         return redirect()->back();
     }
+
+    public function editEmail($id) 
+    {   
+        $info = ContactEmail::find($id);
+        $storePath = '/update-email/'.$info->id;
+        $values = true;
+        return view('pages.bo.contact.edit', compact('storePath','info','values'));
+    }
+
+    public function updateEmail(Request $requests, $id){
+        $update = ContactEmail::find($id);
+        $update->info = $requests->info;
+
+        $update->save();
+        return redirect('/bo/emails');
+    }
+
     public function destroyEmail($id){
         $destroy = ContactEmail::find($id);
         $destroy->delete();
@@ -91,7 +129,9 @@ class ContactController extends Controller
         $pageTitle = 'Phone numbers';
         $storePath = '/add-phone';
         $deletePath = '/delete-phone/';
-        return view('pages.bo.contact.phones',compact('infos','pageTitle','storePath','deletePath'));
+        $editPath = '/edit-phone/';
+        $values = false;
+        return view('pages.bo.contact.phones',compact('infos','pageTitle','storePath','deletePath','editPath','values'));
     }
 
     public function storePhone(Request $requests){
@@ -102,10 +142,74 @@ class ContactController extends Controller
         return redirect()->back();
     }
 
+    public function editPhone($id) 
+    {   
+        $info = ContactPhone::find($id);
+        $storePath = '/update-phone/'.$info->id;
+        $values = true;
+        return view('pages.bo.contact.edit', compact('storePath','info','values'));
+    }
+
+    public function updatePhone(Request $requests, $id){
+        $update = ContactPhone::find($id);
+        $update->info = $requests->info;
+
+        $update->save();
+        return redirect('/bo/phones');
+    }
+
     public function destroyPhone($id){
         $destroy = ContactPhone::find($id);
         $destroy->delete();
         
         return redirect()->back();
     }
+
+    public function editPageContent() 
+    {
+        $pageContent = Contact::first();
+        $pageContentForms = Form::all();
+        $cards = ContactCard::all();
+        return view('pages.bo.contact.pageContent', compact('pageContent','pageContentForms','cards'));
+    }
+
+    public function updatePageContent(Request $request) 
+    {
+        $pageContent = Contact::first();
+        $pageContent->title1 = $request->title1;
+        $pageContent->p = $request->p;
+        $pageContent->loading = $request->loading;
+        $pageContent->sent = $request->sent;
+        $pageContent->btn = $request->btn;
+
+        $pageContent->save();
+
+        return redirect()->back();
+    }
+
+    public function updatePageContentForm(Request $request, $id) 
+    {
+        $pageContentForm = Form::find($id);
+        $pageContentForm->name = $request->name;
+        $pageContentForm->email = $request->email;
+        $pageContentForm->subject = $request->subject;
+        $pageContentForm->message = $request->message;
+
+        $pageContentForm->save();
+
+        return redirect()->back();
+    }
+
+    public function updatePageContentCards(Request $request, $id) 
+    {
+        $pageContentCard = ContactCard::find($id);
+        $pageContentCard->icon = $request->icon;
+        $pageContentCard->subtitle = $request->subtitle;
+
+        $pageContentCard->save();
+
+        return redirect()->back();
+    }
+
+    
 }

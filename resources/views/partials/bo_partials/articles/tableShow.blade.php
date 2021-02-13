@@ -8,6 +8,7 @@
             <th scope="col">Subtitle</th>
             <th scope="col">Preview</th>
             <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -16,6 +17,9 @@
                 <td>{{$show->title}}</td>
             <td>{{$show->subtitle}}</td>
             <td>{{$show->preview}}</td>
+            <td>
+                <a href="/article-edit/{{$show->id}}" class="btn btn-warning">edit</a>
+            </td>
             <td>
                 <form action="/delete-article/{{$show->id}}" method="post">
                 @csrf

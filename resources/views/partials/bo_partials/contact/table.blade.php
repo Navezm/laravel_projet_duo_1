@@ -7,6 +7,7 @@
         <th scope="col">#</th>
         <th scope="col">Infos</th>
         <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +15,7 @@
       <tr>
         <th scope="row">{{$info->id}}</th>
         <td>{{$info->info}}</td>
+        <td><a href="{{$editPath.$info->id}}" class="btn btn-warning">edit</a></td>
         <td>
           <form action="{{$deletePath.$info->id}}" method="post">
             @csrf
