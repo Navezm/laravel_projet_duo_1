@@ -31,11 +31,10 @@ Route::get('/bo',function(){
 Route::get('/bo/home', [HomeController::class, 'home']);
 Route::post('/addHomeBullet',[HomeController::class, 'storeHome']);
 Route::post('/addAboutBullet',[HomeController::class, 'storeAbout']);
+
 Route::get('/bo/nav', [HomeController::class, 'nav']);
 Route::post('/addNavLink',[HomeController::class, 'storeNav']);
 Route::get('/bo/articles',[ArticleController::class, "create"]);
-
-
 
 Route::post('/add-article',[ArticleController::class, 'store']);
 Route::post('/delete-article/{id}',[ArticleController::class, 'destroy']);
@@ -68,6 +67,7 @@ Route::post('/deleteAbout/{id}', [HomeController::class,'destroy3']);
 Route::get('/editNav/{id}', [HomeController::class,'edit']);
 Route::get('/editHome/{id}', [HomeController::class,'edit2']);
 Route::get('/editAbout/{id}', [HomeController::class,'edit3']);
+
 Route::post('/updateNav/{id}', [HomeController::class,'update']);
 Route::post('/updateHome/{id}', [HomeController::class,'update2']);
 Route::post('/updateAbout/{id}', [HomeController::class,'update3']);
@@ -80,3 +80,4 @@ Route::get('/bo/contact/pg', [ContactController::class, 'editPageContent']);
 Route::post('/bo/contact/content/update', [ContactController::class, 'updatePageContent']);
 Route::post('/bo/contact/content/update-form/{id}', [ContactController::class, 'updatePageContentForm']);
 Route::post('/bo/contact/content/update-card/{id}', [ContactController::class, 'updatePageContentCards']);
+Route::get('/bo/home/pg', [HomeController::class,'editContent']);

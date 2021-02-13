@@ -4,14 +4,14 @@
         <div class="row content">
           <div class="col-lg-6">
             <h2>{{$DBhome[0]->subtitle}}</h2>
-            <h3>{{$DBhome[0]->paragraph}}</h3>
+            <h3>{{$DBparagraph[0]->paragraph}}</h3>
             <div>
-                <img class="rounded" src="{{$DBhome[1]->src}}" alt="">
+                <img class="rounded" src="{{$DBhome[0]->src2}}" alt="">
             </div>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
-              {{$DBhome[1]->paragraph}}
+              {{$DBparagraph[1]->paragraph}}
             </p>
             <ul>
               @foreach ($BulletAbout as $item)
@@ -19,7 +19,7 @@
               @endforeach
             </ul>
             <p class="font-italic">
-              {{$DBhome[2]->paragraph}}
+              {{$DBparagraph[2]->paragraph}}
             </p>
           </div>
         </div>

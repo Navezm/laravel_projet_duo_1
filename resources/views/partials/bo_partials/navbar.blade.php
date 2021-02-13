@@ -9,8 +9,16 @@
         <ul>
             <li class="nav-item"> <a href="/" class="nav-item btn btn-primary text-white ">
             To the Website</a></li>
-            <li class="nav-item">
-                <a class="nav-link" href="/bo/home">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Home
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                <a class="dropdown-item" href="/bo/home/pg">Page Content</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/bo/home">Add Bullet Point</a>
+              </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

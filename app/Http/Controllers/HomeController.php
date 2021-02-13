@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FooterButton;
 use App\Models\Home;
+use App\Models\HomeParagraph;
 use App\Models\HomeFirstBullet;
 use App\Models\HomeSecondBullet;
 use App\Models\NavFooter;
@@ -14,6 +15,7 @@ class HomeController extends Controller
 {
     public function index(){
         $DBhome = Home::all();
+        $DBparagraph = HomeParagraph::all();
         $BulletHome = HomeFirstBullet::all();
         $BulletAbout = HomeSecondBullet::all();
 
@@ -22,13 +24,13 @@ class HomeController extends Controller
         $DBnav = NavFooter::all();
         $paragraph1 = explode('/', $DBnav[0]->copyright);
         $paragraph2 = explode('/', $DBnav[0]->credits);
-        return view('welcome', compact('DBhome', 'DBnav', 'paragraph1', 'paragraph2', 'NavLink', 'FooterBtn', 'BulletHome', 'BulletAbout'));
+        return view('welcome', compact('DBhome', 'DBparagraph', 'DBnav', 'paragraph1', 'paragraph2', 'NavLink', 'FooterBtn', 'BulletHome', 'BulletAbout'));
     }
 
     public function home(){
         $BulletHome = HomeFirstBullet::all();
         $BulletAbout = HomeSecondBullet::all();
-        return view('pages.bo.home', compact('BulletHome', 'BulletAbout'));
+        return view('pages.bo.home.home', compact('BulletHome', 'BulletAbout'));
     }
 
     public function storeHome(Request $requests){
@@ -87,13 +89,13 @@ class HomeController extends Controller
     public function edit2($id)
     {
         $show = HomeFirstBullet::find($id);
-        return view('pages.bo.homeEdit', compact('show'));
+        return view('pages.bo.home.homeEdit', compact('show'));
     }
 
     public function edit3($id)
     {
         $show = HomeSecondBullet::find($id);
-        return view('pages.bo.aboutEdit', compact('show'));
+        return view('pages.bo.home.aboutEdit', compact('show'));
     }
 
     public function update($id, Request $request)
@@ -118,5 +120,17 @@ class HomeController extends Controller
         $update->bullet = $request->bullet;
         $update->save();
         return redirect()->back();
+    }
+
+    public function editContent()
+    {
+        $DBparagraph = HomeParagraph::all();
+        $DBhome = Home::all();
+        return view('pages.bo.home.pageContent', compact('DBhome', 'DBparagraph'));
+    }
+
+    public function updateContent(Request $request)
+    {
+        $update = Home::all();
     }
 }

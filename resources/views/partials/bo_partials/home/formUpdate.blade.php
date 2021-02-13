@@ -1,5 +1,5 @@
 <div class="container mt-5 pt-5">
-    <div class="rounded p-5 mt-3">
+    <div class="rounded bg-warning p-5 mt-3">
         <form method="POST" action="/updateHome/{{$show->id}}">
           @csrf
           <div class="form-group">
@@ -9,4 +9,5 @@
           <button type="submit" class="btn btn-light text-primary">Submit</button>
         </form>
     </div>
-</div>
+    <a class="btn btn-warning mt-3" href="/bo/home">Back</a>
+  </div>
