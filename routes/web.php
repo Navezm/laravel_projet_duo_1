@@ -80,4 +80,9 @@ Route::get('/bo/contact/pg', [ContactController::class, 'editPageContent']);
 Route::post('/bo/contact/content/update', [ContactController::class, 'updatePageContent']);
 Route::post('/bo/contact/content/update-form/{id}', [ContactController::class, 'updatePageContentForm']);
 Route::post('/bo/contact/content/update-card/{id}', [ContactController::class, 'updatePageContentCards']);
+
 Route::get('/bo/home/pg', [HomeController::class,'editContent']);
+Route::get('/bo/home/paraPg', [HomeController::class,'showParagraph']);
+Route::get('/editPara/{id}', [HomeController::class,'editParagraph']);
+Route::post('/updateParagraph/{id}', [HomeController::class,'updateParagraph']);
+Route::post('/updateContent', [HomeController::class,'updateContent']);

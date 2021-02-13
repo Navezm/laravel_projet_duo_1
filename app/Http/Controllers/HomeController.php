@@ -124,13 +124,38 @@ class HomeController extends Controller
 
     public function editContent()
     {
-        $DBparagraph = HomeParagraph::all();
         $DBhome = Home::all();
-        return view('pages.bo.home.pageContent', compact('DBhome', 'DBparagraph'));
+        return view('pages.bo.home.pageContent', compact('DBhome'));
     }
 
     public function updateContent(Request $request)
     {
-        $update = Home::all();
+        $DBhome = Home::first();
+        $DBhome->title = $request->title;
+        $DBhome->subtitle = $request->subtitle;
+        $DBhome->btn1 = $request->btn1;
+        $DBhome->btn2 = $request->btn2;
+        $DBhome->save();
+        return redirect()->back();
+    }
+
+    public function showParagraph()
+    {
+        $DBparagraph = HomeParagraph::all();
+        return view('pages.bo.home.paragraphContent', compact('DBparagraph'));
+    }
+    
+    public function editParagraph($id)
+    {
+        $DBparagraph = HomeParagraph::find($id);
+        return view('pages.bo.home.paragraphEdit', compact('DBparagraph'));
+    }
+
+    public function updateParagraph($id, Request $request)
+    {
+        $DBparagraph = HomeParagraph::find($id);
+        $DBparagraph->paragraph = $request->paragraph;
+        $DBparagraph->save();
+        return redirect()->back();
     }
 }

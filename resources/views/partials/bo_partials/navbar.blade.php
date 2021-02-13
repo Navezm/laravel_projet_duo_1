@@ -16,6 +16,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                 <a class="dropdown-item" href="/bo/home/pg">Page Content</a>
+                <a class="dropdown-item" href="/bo/home/paraPg">Paragraph Content</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/bo/home">Add Bullet Point</a>
               </div>
