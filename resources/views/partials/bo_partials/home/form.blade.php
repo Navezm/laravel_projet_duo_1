@@ -1,5 +1,3 @@
-
-
 <div class="bg-primary rounded text-white p-5 mt-3">
   <form method="POST" action="/addHomeBullet">
     @csrf

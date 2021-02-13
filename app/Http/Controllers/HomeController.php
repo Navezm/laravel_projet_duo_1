@@ -77,4 +77,46 @@ class HomeController extends Controller
         $destroy->delete();
         return redirect()->back();
     }
+
+    public function edit($id)
+    {
+        $show = NavLink::find($id);
+        return view('pages.bo.navEdit', compact('show'));
+    }
+
+    public function edit2($id)
+    {
+        $show = HomeFirstBullet::find($id);
+        return view('pages.bo.homeEdit', compact('show'));
+    }
+
+    public function edit3($id)
+    {
+        $show = HomeSecondBullet::find($id);
+        return view('pages.bo.aboutEdit', compact('show'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $update = NavLink::find($id);
+        $update->link = $request->link;
+        $update->save();
+        return redirect()->back();
+    }
+
+    public function update2($id, Request $request)
+    {
+        $update = HomeFirstBullet::find($id);
+        $update->bullet = $request->bullet;
+        $update->save();
+        return redirect()->back();
+    }
+
+    public function update3($id, Request $request)
+    {
+        $update = HomeSecondBullet::find($id);
+        $update->bullet = $request->bullet;
+        $update->save();
+        return redirect()->back();
+    }
 }

@@ -52,3 +52,10 @@ Route::post('/delete-phone/{id}',[ContactController::class, 'destroyPhone']);
 Route::post('/deleteNav/{id}', [HomeController::class,'destroy']);
 Route::post('/deleteHome/{id}', [HomeController::class,'destroy2']);
 Route::post('/deleteAbout/{id}', [HomeController::class,'destroy3']);
+
+Route::get('/editNav/{id}', [HomeController::class,'edit']);
+Route::get('/editHome/{id}', [HomeController::class,'edit2']);
+Route::get('/editAbout/{id}', [HomeController::class,'edit3']);
+Route::post('/updateNav/{id}', [HomeController::class,'update']);
+Route::post('/updateHome/{id}', [HomeController::class,'update2']);
+Route::post('/updateAbout/{id}', [HomeController::class,'update3']);
