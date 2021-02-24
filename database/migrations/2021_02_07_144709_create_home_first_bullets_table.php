@@ -15,7 +15,7 @@ class CreateHomeFirstBulletsTable extends Migration
     {
         Schema::create('home_first_bullets', function (Blueprint $table) {
             $table->id();
-            $table->string('icon', 50);
+            $table->string('icon', 50)->nullable();
             $table->string('bullet', 100);
             $table->timestamps();
         });
