@@ -14,6 +14,16 @@
             <h5 class="text-primary mt-5"><span class="p text-secondary"> Current Subtitle :  </span><p>{{$DBhome[0]->subtitle}}</p></h5>
         </div>
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $item)
+                        <li>{{$item}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        
         <div class="container mt-3 p-5">
             <form action="/updateContent" method="post" class="bg-warning text-white rounded p-3">
                 @csrf

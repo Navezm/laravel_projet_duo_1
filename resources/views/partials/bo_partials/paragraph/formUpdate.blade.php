@@ -1,4 +1,13 @@
 <div class="container mt-5 pt-5">
+  @if ($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $item)
+              <li>{{$item}}</li>
+          @endforeach
+      </ul>
+  </div>
+  @endif
   <div class="rounded bg-warning p-5 mt-3">
     <form method="POST" action="/updateParagraph/{{$DBparagraph->id}}">
       @csrf

@@ -34,6 +34,11 @@ class HomeController extends Controller
     }
 
     public function storeHome(Request $requests){
+
+        $validated = $requests->validate([
+            'bullet' => 'required'
+        ]);
+
         $newEntry = new HomeFirstBullet();
         $newEntry->bullet = $requests->bullet;
 
@@ -42,6 +47,11 @@ class HomeController extends Controller
     }
 
     public function storeAbout(Request $requests){
+
+        $validated = $requests->validate([
+            'bullet' => 'required'
+        ]);
+
         $newEntry = new HomeSecondBullet();
         $newEntry->bullet = $requests->bullet;
 
@@ -55,6 +65,11 @@ class HomeController extends Controller
     }
 
     public function storeNav(Request $requests){
+
+        $validated = $requests->validate([
+            'link' => 'required'
+        ]);
+
         $newEntry = new NavLink();
         $newEntry->link = $requests->link;
 
@@ -100,6 +115,10 @@ class HomeController extends Controller
 
     public function update($id, Request $request)
     {
+        $validated = $request->validate([
+            'link' => 'required'
+        ]);
+
         $update = NavLink::find($id);
         $update->link = $request->link;
         $update->save();
@@ -108,6 +127,10 @@ class HomeController extends Controller
 
     public function update2($id, Request $request)
     {
+        $validated = $request->validate([
+            'bullet' => 'required'
+        ]);
+
         $update = HomeFirstBullet::find($id);
         $update->bullet = $request->bullet;
         $update->save();
@@ -116,6 +139,10 @@ class HomeController extends Controller
 
     public function update3($id, Request $request)
     {
+        $validated = $request->validate([
+            'bullet' => 'required'
+        ]);
+
         $update = HomeSecondBullet::find($id);
         $update->bullet = $request->bullet;
         $update->save();
@@ -130,6 +157,13 @@ class HomeController extends Controller
 
     public function updateContent(Request $request)
     {
+        $validated = $request->validate([
+            'title' => 'required',
+            'subtitle' => 'required',
+            'btn1' => 'required',
+            'btn2' => 'required'
+        ]);
+
         $DBhome = Home::first();
         $DBhome->title = $request->title;
         $DBhome->subtitle = $request->subtitle;
@@ -153,6 +187,10 @@ class HomeController extends Controller
 
     public function updateParagraph($id, Request $request)
     {
+        $validated = $request->validate([
+            'paragraph' => 'required'
+        ]);
+        
         $DBparagraph = HomeParagraph::find($id);
         $DBparagraph->paragraph = $request->paragraph;
         $DBparagraph->save();
