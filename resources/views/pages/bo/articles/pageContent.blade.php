@@ -8,7 +8,15 @@
     <h5 class="text-primary mt-5"><span class="p text-secondary"> Current Title :  </span>{{$pageContent->title}}</h5>  
 
     <div class="container mt-3 p-5">
-
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+         @endif
         
         <form action="/bo/articles/content/update" method="post" class="bg-warning text-white rounded p-3">
             @csrf
