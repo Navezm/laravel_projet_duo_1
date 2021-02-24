@@ -1,8 +1,8 @@
 <div class="bg-primary rounded text-white p-5 mt-3">
-  @if ($errors->any())
+  @if ($errors->bullet2->any())
   <div class="alert alert-danger">
       <ul>
-          @foreach ($errors->all() as $item)
+          @foreach ($errors->bullet2->all() as $item)
               <li>{{$item}}</li>
           @endforeach
       </ul>

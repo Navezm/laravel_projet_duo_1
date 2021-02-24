@@ -35,7 +35,7 @@ class HomeController extends Controller
 
     public function storeHome(Request $requests){
 
-        $validated = $requests->validate([
+        $validated = $requests->validateWithBag('bullet1',[
             'bullet' => 'required'
         ]);
 
@@ -48,7 +48,7 @@ class HomeController extends Controller
 
     public function storeAbout(Request $requests){
 
-        $validated = $requests->validate([
+        $validated = $requests->validateWithBag('bullet2',[
             'bullet' => 'required'
         ]);
 
