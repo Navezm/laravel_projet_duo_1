@@ -1,5 +1,13 @@
 <div class="bg-primary rounded text-white p-5 mt-3">
-
+    @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+  @endif
     <h5 class="my-5 text-underline">{{$values? 'Edit an Article' : 'Add an Article'}}</h5>
       <form action="{{$values? '/update-article/'.$article->id : '/add-article'}}" method="post" >
         @csrf

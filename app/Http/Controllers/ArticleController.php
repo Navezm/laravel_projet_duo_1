@@ -31,6 +31,14 @@ class ArticleController extends Controller
     }
 
     public function store(Request $requests){
+
+        $validated = $requests->validate([
+            'title' => 'required|max:100',
+            'subtitle' => 'required|max:100',
+            'preview' => 'required|max:300',
+        ]);
+
+
         $newEntry = new Article;
         $newEntry->title = $requests->title;
         $newEntry->subtitle = $requests->subtitle;
@@ -55,6 +63,14 @@ class ArticleController extends Controller
     }
 
     public function update(Request $requests, $id){
+
+        $validated = $requests->validate([
+            'title' => 'required|max:100',
+            'subtitle' => 'required|max:100',
+            'preview' => 'required|max:300',
+        ]);
+
+
         $update = Article::find($id);
         $update->title = $requests->title;
         $update->subtitle = $requests->subtitle;
@@ -78,6 +94,12 @@ class ArticleController extends Controller
 
     public function updatePageContent(Request $request) 
     {
+
+        $validated = $request->validate([
+            'title' => 'required|max:200',
+        ]);
+
+
         $pageContent = articlePageContent::first();
         $pageContent->title = $request->title;
 

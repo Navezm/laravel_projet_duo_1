@@ -52,6 +52,11 @@ class ContactController extends Controller
     }
 
     public function storeAddress(Request $requests){
+
+        $validated = $requests->validate([
+            'info' => 'required|max:300',
+        ]);
+
         $newEntry = new ContactAddress;
         $newEntry->info = $requests->info;
 
@@ -68,6 +73,11 @@ class ContactController extends Controller
     }
 
     public function updateAddress(Request $requests, $id){
+
+        $validated = $requests->validate([
+            'info' => 'required|max:300',
+        ]);
+
         $update = ContactAddress::find($id);
         $update->info = $requests->info;
 
@@ -94,6 +104,11 @@ class ContactController extends Controller
     }
 
     public function storeEmail(Request $requests){
+
+        $validated = $requests->validate([
+            'info' => 'required|max:100',
+        ]);
+
         $newEntry = new ContactEmail;
         $newEntry->info = $requests->info;
 
@@ -110,6 +125,11 @@ class ContactController extends Controller
     }
 
     public function updateEmail(Request $requests, $id){
+
+        $validated = $requests->validate([
+            'info' => 'required|max:100',
+        ]);
+
         $update = ContactEmail::find($id);
         $update->info = $requests->info;
 
@@ -135,6 +155,12 @@ class ContactController extends Controller
     }
 
     public function storePhone(Request $requests){
+
+        $validated = $requests->validate([
+            'info' => 'required|max:30',
+        ]);
+
+
         $newEntry = new ContactPhone;
         $newEntry->info = $requests->info;
 
@@ -151,6 +177,12 @@ class ContactController extends Controller
     }
 
     public function updatePhone(Request $requests, $id){
+
+        $validated = $requests->validate([
+            'info' => 'required|max:30',
+        ]);
+
+
         $update = ContactPhone::find($id);
         $update->info = $requests->info;
 
@@ -175,6 +207,16 @@ class ContactController extends Controller
 
     public function updatePageContent(Request $request) 
     {
+
+        $validated = $request->validateWithBag('pg',[
+            'title1' => 'required|max:30',
+            'p' => 'required|max:1000',
+            'loading' => 'required|max:50',
+            'sent' => 'required|max:100',
+            'btn' => 'required|max:30',
+        ]);
+
+
         $pageContent = Contact::first();
         $pageContent->title1 = $request->title1;
         $pageContent->p = $request->p;
@@ -189,6 +231,13 @@ class ContactController extends Controller
 
     public function updatePageContentForm(Request $request, $id) 
     {
+        $validated = $request->validateWithBag('form',[
+            'name' => 'required|max:50',
+            'email' => 'required|max:50',
+            'subject' => 'required|max:50',
+            'message' => 'required|max:3000',
+        ]);
+
         $pageContentForm = Form::find($id);
         $pageContentForm->name = $request->name;
         $pageContentForm->email = $request->email;
@@ -202,6 +251,12 @@ class ContactController extends Controller
 
     public function updatePageContentCards(Request $request, $id) 
     {
+
+        $validated = $request->validateWithBag('cards',[
+            'icon' => 'required|max:30',
+            'subtitle' => 'required|max:50',
+        ]);
+
         $pageContentCard = ContactCard::find($id);
         $pageContentCard->icon = $request->icon;
         $pageContentCard->subtitle = $request->subtitle;
