@@ -1,5 +1,6 @@
 @extends('template.backoffice')
 @section('content_bo')
+
 <section class="container my-5">
     <h1 class="bo-title text-center">
         Contact - Page Content
@@ -19,8 +20,15 @@
     </div>
 
     <div class="container mt-3 p-5">
-
-        
+        @if ($errors->pg->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->pg->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="/bo/contact/content/update" method="post" class="bg-warning text-white rounded p-3">
             @csrf
             <div class="form-group">
@@ -43,7 +51,7 @@
                 <label >New Send Button : </label>
                 <input type="text" class="form-control" name="btn" value="{{$pageContent->btn}}"/>
               </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-primary update">Update</button>
         </form>
     </div>
 
@@ -53,6 +61,15 @@
     <h1 class="bo-title text-center">
         Contact - Cards
     </h1>
+    @if ($errors->cards->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->cards->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+    @endif
     
     @foreach ($cards as $card)
         <h5 class="text-primary"> Card #{{$loop->iteration}}</h5>
@@ -77,7 +94,7 @@
 
                   </div>
                
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary update">Update</button>
             </form>
         </div>
     @endforeach
@@ -89,7 +106,15 @@
     <h1 class="bo-title text-center">
         Form
     </h1>
-    
+    @if ($errors->form->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->form->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+    @endif
     @foreach ($pageContentForms as $pageContentForm)
         @if ($loop->iteration == 1)
             <h1>Form PlaceHolders</h1>
@@ -128,7 +153,7 @@
                     <label >Message : </label>
                     <input type="text" class="form-control" name="message" value="{{$pageContentForm->message}}"/>
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary update">Update</button>
             </form>
         </div>
 
